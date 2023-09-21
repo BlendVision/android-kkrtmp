@@ -61,6 +61,12 @@ private lateinit var binding: ActivityMainBinding
 
 #### How to request deivce permision
 ```kotlin=
+// add these in AndroidManifest.xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+// request in activity
 val requiredPermissions = arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.RECORD_AUDIO)
     for (permission in requiredPermissions) {
         if (ContextCompat.checkSelfPermission(this, permission)
@@ -77,7 +83,7 @@ val requiredPermissions = arrayOf(android.Manifest.permission.CAMERA, android.Ma
 // create instance
 connection = RtmpConnection()
 stream = RtmpStream(connection)
-// retrive camera and microphone device
+// get the camera and microphone devices
 val audioSource = AudioRecordSource(this, false)
 stream.attachAudio(audioSource)
 camera2Source = Camera2Source(this)
