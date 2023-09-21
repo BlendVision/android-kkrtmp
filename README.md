@@ -107,7 +107,7 @@ override fun handleEvent(event: Event) {
 ```kotlin=
 // publish/stop rtmp streaming
 binding.btnPublish.setOnClickListener {
-    if (connection.isConnected) {
+    if (binding.btnPublish.text == "Stop") {
         connection.close()
         (it as AppCompatButton).text = "Publish"
     } else {

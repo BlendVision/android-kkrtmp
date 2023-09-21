@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), IEventListener {
 
     private fun registerListener() {
         binding.btnPublish.setOnClickListener {
-            if (connection.isConnected) {
+            if (binding.btnPublish.text == "Stop") {
                 connection.close()
                 (it as AppCompatButton).text = "Publish"
             } else {
@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity(), IEventListener {
 
     companion object {
         private val TAG = MainActivity::class.java.simpleName
-        private const val RTMP_URL = "rtmp://f01eb1d4cee81960c38786fc6887b637-main.jcl-qa-coco-d3.kkstream.tech:1935/live/stream"
+        private const val RTMP_URL = "rtmp://4d231a32459cdb390f90d2bb0d7b885a-main.jcl-qa-coco-d3.kkstream.tech:1935/live/stream"
         private const val RTMP_STREAM_NAME = "stream"
     }
 }
